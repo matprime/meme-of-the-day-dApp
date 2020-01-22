@@ -3,9 +3,12 @@
 Upload your meme, vote and comment on other memes, discover top memes with this dApp.
 
 
-Demonstration dApp is created using Ethereum blockchain and IPFS Interplanetary File System. Frontend of dApp is running in web browser window, where it possible to interact with dApp. 
+dApp is created for use with Fantom's Opera blockchain and IPFS Interplanetary File System. Frontend of dApp is running in web browser window, where it possible to interact with dApp.
 
-You will be able to select a file/meme from your computer and upload it to IPFS. Information where on IPFS file/meme resides will be stored in Ethereum blockchain as hash from IPFS (hash of file/meme when it was generated on IPFS). Application is simulating "Meme of the day" functionality. Users of dApp will be able to upload memes and vote for memes. Application will be showing top voted memes, possiblity to upload meme and possibility to vote on memes.
+Memes of the day is a fun social platform that encourages new users to join the Opera Network. Through the dApp interface, the user uploads a meme image that is saved in the InterPlanetary File System (IPFS), which creates a hash that is stored on the Opera Network. This is our initial proof of concept functionality. 
+
+Beyond this, our vision is for people to vote (and possibly comment) on the memes they like, which would be featured in a list that is updated in real-time. After a user pays for their first vote, they would receive three free votes, paid directly from the transaction fee of the first vote (equal to the required gas for four total vote operations). The smart contract would save that gas in a dedicated Opera account that it would access to implement the three free votes. We are hopeful that Decentralized Memes and the future voting mechanism would encourage more user interest and engagement with Opera Network and the Fantom Protocol. 
+
 
 **Dependencies are:**
 - Node.js 10.1x.x
@@ -14,20 +17,17 @@ You will be able to select a file/meme from your computer and upload it to IPFS.
 > npm install -g truffle@5.0.5 (important is to use this version)
 - Web3.js
 - IPFS
-- Ganache
-> donwnload from https://www.trufflesuite.com/ganache
-> change the permission of file to be executable: chmod u+x ganache-2.1.2-linux-x86_64.AppImage
-> then run it with double click from GUI or from terminal window: ./ganache-2.1.2-linux-x86_64.AppImage
+- Opera blockchain
 - Metamask extension from Google Chrome web store
 
 **Installation procedure**
 ```shell
-git clone https://github.com/matprime/decentralized-memes
-cd decentralized-memes
+git clone https://github.com/matprime/meme-of-the-day-dApp
+cd meme-of-the-day-dApp
 npm install
 npm run start
 ```
-Before starting the application with last command "npm run start" you need to make sure that Ganache is running. Please look into Ganache manual, how to start it (you need to change permission on file donwloaded to be executable, to be able to run it). After Ganache is running and you started application, you should see web browser open up and application will load and show the latest meme uploaded in browser window.
+Before starting the dApp with last command "npm run start" you need to make sure that local Opera blockchain is running. Please look into Opera blockchain documentation, how to start it. After Opera blockchain is running and you started application, you should see web browser open up and application will load and show the latest meme uploaded in browser window.
 
 **Command to migrate smart contract to blockchain**
 ```shell
