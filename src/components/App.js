@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Web3 from 'web3';
 import './App.css';
-//import FilesHandler from '../abis/FilesHandler.json'
 import MemesHandler from '../abis/MemesHandler.json'
 
 const ipfsClient = require('ipfs-http-client')
@@ -79,14 +78,16 @@ class App extends Component {
   }
 
   async loadWeb3() {
-    if (window.ethereum) {
-      window.web3 = new Web3(window.ethereum)
-      await window.ethereum.enable()
-    } if (window.web3) {
-      window.web3 = new Web3(window.web3.currentProvider)
-    } else {
-      window.alert('To work correctly, please use metamask!')
-    }
+    window.web3 = new Web3(new Web3.providers.HttpProvider('http://34.253.43.155:3001/'));
+
+    //if (window.ethereum) {
+    //  window.web3 = new Web3(window.ethereum)
+    //  await window.ethereum.enable()
+    //} if (window.web3) {
+    //  window.web3 = new Web3(window.web3.currentProvider)
+    //} else {
+    //  window.alert('To work correctly, please use metamask!')
+    //}
   }
 
   captureMeme = (event) => {
