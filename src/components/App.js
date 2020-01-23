@@ -37,10 +37,6 @@ class App extends Component {
       const contract = web3.eth.Contract(abi, address)
       this.setState({contract: contract})
       console.log(contract)
-      //calling get function from smart contract
-      //const fileHash = await contract.methods.getFileHash().call()
-      //console.log("File hash: " + fileHash)
-      //this.setState({fileHash})
       const memesCount = await contract.methods.getMemesCount().call()
       console.log('count of stored memes: ' + memesCount)
       let ipfsHash ='';
