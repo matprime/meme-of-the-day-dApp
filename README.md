@@ -3,7 +3,7 @@
 Upload your meme, vote and comment on other memes, discover top memes with this dApp.
 
 
-dApp is created for use with Fantom's Opera blockchain and IPFS Interplanetary File System. Frontend of dApp is running in web browser window, where it possible to interact with dApp.
+dApp is created for use with Fantom's Opera blockchain and IPFS Interplanetary File System. Frontend of dApp is running in web browser window, where it possible to interact with dApp. Code base originates from my other repository, which if dApp version for Ethereum and IPFS: https://github.com/matprime/decentralized-memes
 
 Memes of the day is a fun social platform that encourages new users to join the Opera Network. Through the dApp interface, the user uploads a meme image that is saved in the InterPlanetary File System (IPFS), which creates a hash that is stored on the Opera Network. This is our initial proof of concept functionality. 
 
