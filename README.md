@@ -16,9 +16,17 @@ Beyond this, our vision is for people to vote (and possibly comment) on the meme
 - Truffle
 > npm install -g truffle@5.0.5 (important is to use this version)
 - Web3.js
-- IPFS
-- Opera blockchain
-- Metamask extension from Google Chrome web store
+- IPFS 
+> public open IPFS trough Infura is already coded into Meme dApp, find more about IPFS here
+> https://infura.io/
+- Opera blockchain: https://github.com/Fantom-foundation/go-lachesis
+> You need to configure blockhain to run in local private mode not public
+> after you pull it and compile it from repository, run the blockchain with command
+```shell
+lachesis --fakenet 1/1
+```
+- Fantom desktop wallet: https://github.com/Fantom-foundation/desktop-web-wallet
+
 
 **Installation procedure**
 ```shell
@@ -27,11 +35,11 @@ cd meme-of-the-day-dApp
 npm install
 npm run start
 ```
-Before starting the dApp with last command "npm run start" you need to make sure that local Opera blockchain is running. Please look into Opera blockchain documentation, how to start it. After Opera blockchain is running and you started application, you should see web browser open up and application will load and show the latest meme uploaded in browser window.
+Before starting the dApp with last command "npm run start" you need to make sure that local Opera blockchain is running. Please look into Opera blockchain repository https://github.com/Fantom-foundation/go-lachesis, how to start it. After Opera blockchain is running and you started dApp, you should see web browser open up and dApp will load and show the latest meme uploaded in browser window.
 
 **Command to migrate smart contract to blockchain**
 ```shell
-truffle migration
+truffle migrate
 ```
 After succesfull migration of smart contract to blockhain you can interact with him using truffle console.
 
@@ -42,21 +50,31 @@ truffle console
 ```
 After truffle console is running you can get contract from blockchain with command:
 ```javascript
-truffle(development)> const fileshandler = await FilesHandler.deployed()
+truffle(development)> const memeshandler = await MemesHandler.deployed()
 ```
-You can store hash of file to blockchain using contracts set function:
+You can store hash of meme to blockchain using contracts set function:
 ```javascript
-truffle(development)> result = fileshandler.setFileHash('filehash123')
+truffle(development)> result = memeshandler.newMeme('QmYHaaWHgpT2iBGNxMCCFpDKgskej6bhubd5cnytUuJKRp')
 ```
-To get the hash of file stored on blockchain you can type:
+To get the account under which was meme stored on blockchain you can type:
 ```javascript
-truffle(development)> const filehash = await fileshandler.getFileHash()
+truffle(development)> const memesList = memeshandler.getMemesList()
 ```
 You needed to type constant as command to get value stored in it:
 ```javascript
-truffle(development)> filehash
-'filehash123'
+truffle(development)> memesList
+[ '0x787eBC47F34081a0Df4dc3923798828ae52C538C' ]
 ```
+Read the IPFS file hash from meme stored on blockchain:
+```javascript
+const meme = memeshandler.getMemeByAddress('0x787eBC47F34081a0Df4dc3923798828ae52C538C')
+```
+Output IPFS file hash into console:
+```javascript
+meme
+'QmYHaaWHgpT2iBGNxMCCFpDKgskej6bhubd5cnytUuJKRp'
+```
+
 
 **To run tests defined in folder /test run from shell command**  
 ```javascript
