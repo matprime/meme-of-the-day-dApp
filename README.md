@@ -21,7 +21,7 @@ Beyond this, our vision is for people to vote (and possibly comment) on the meme
 > https://infura.io/
 - Opera blockchain: https://github.com/Fantom-foundation/go-lachesis
 > You need to configure blockhain to run in local private mode not public
-> after you pull it and compile it from repository, run the blockchain and enable RPC with command
+> after you pull it and compile it from repository, run the blockchain and enable WebSocket endpoint with command
 ```shell
 lachesis --fakenet 1/1 --ws
 ```
