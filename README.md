@@ -3,11 +3,11 @@
 Upload your meme, vote and comment on other memes, discover top memes with this dApp.
 
 
-dApp is created for use with Fantom's Opera blockchain and IPFS Interplanetary File System. Frontend of dApp is running in web browser window, where it possible to interact with dApp. Code base originates from my other repository, which is dApp version for Ethereum and IPFS: https://github.com/matprime/decentralized-memes
+This dApp is created for use with Fantom's Opera blockchain and Interplanetary File System (IPFS). The frontend runs in a web browser window where the user interacts with the dApp. The code base originates from my other repository, which is version of this dApp for Ethereum and IPFS: https://github.com/matprime/decentralized-memes
 
-Memes of the day is a fun social platform that encourages new users to join the Opera Network. Through the dApp interface, the user uploads a meme image that is saved in the InterPlanetary File System (IPFS), which creates a hash that is stored on the Opera Network. This is our initial proof of concept functionality. 
+Meme of the Day is a fun social platform that encourages new users to join the Opera Network. Through the dApp interface, the user uploads a meme image that is saved in IPFS, which creates a hash that is stored on the Opera Network. This is our initial proof of concept functionality. Once Fantom releases a web3 compatible wallet (we found Fantom's web3-wallet repo https://github.com/Fantom-foundation/web3-wallet, which is empty), we could integrate wallet functionality into Meme of the Day. 
 
-Beyond this, our vision is for people to vote (and possibly comment) on the memes they like, which would be featured in a list that is updated in real-time. After a user pays for their first vote, they would receive three free votes, paid directly from the transaction fee of the first vote (equal to the required gas for four total vote operations). The smart contract would save that gas in a dedicated Opera account that it would access to implement the three free votes. We are hopeful that Decentralized Memes and the future voting mechanism would encourage more user interest and engagement with Opera Network and the Fantom Protocol. 
+Beyond this, our vision is for people to vote (and possibly comment) on the memes they like, which would be featured in a list that is updated in real-time. After a user pays for their first vote, they would receive three free votes, paid directly from the transaction fee of the first vote (equal to the required gas for four total vote operations). The smart contract would save that gas in a dedicated Opera account that it would access to implement the three free votes. We are hopeful that Meme of the Day and the future voting mechanism would encourage more user interest and engagement with Opera Network and the Fantom Protocol.  
 
 
 **Dependencies are:**
