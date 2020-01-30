@@ -5,7 +5,7 @@ Upload your meme, vote and comment on other memes, discover top memes with this 
 
 This dApp is created for use with Fantom's Opera blockchain and Interplanetary File System (IPFS). The frontend runs in a web browser window where the user interacts with the dApp. The code base originates from my other repository, which is version of this dApp for Ethereum and IPFS: https://github.com/matprime/decentralized-memes
 
-Meme of the Day is a fun social platform that encourages new users to join the Opera Network. Through the dApp interface, the user uploads a meme image that is saved in IPFS, which creates a hash that is stored on the Opera Network. This is our initial proof of concept functionality. Once Fantom releases a web3 compatible wallet (we found Fantom's web3-wallet repo https://github.com/Fantom-foundation/web3-wallet, which is empty), we could integrate wallet functionality into Meme of the Day. 
+Meme of the Day is a fun social platform that encourages new users to join the Opera Network. Through the dApp interface, the user uploads a meme image that is saved in IPFS, which creates a hash that is stored on the Opera Network. This is our initial proof of concept functionality. Until Fantom releases Opera testnet it is possible to get dApp up and running in local development environment with local Ethereum blockchain (Ganache). Because The Fantom Opera network is web3js compatible, so using the web3js calls in the documentation ( https://web3js.readthedocs.io/en/v1.2.5/) should work the same as with the Opera Network and Ethereum network.
 
 Beyond this, our vision is for people to vote (and possibly comment) on the memes they like, which would be featured in a list that is updated in real-time. After a user pays for their first vote, they would receive three free votes, paid directly from the transaction fee of the first vote (equal to the required gas for four total vote operations). The smart contract would save that gas in a dedicated Opera account that it would access to implement the three free votes. We are hopeful that Meme of the Day and the future voting mechanism would encourage more user interest and engagement with Opera Network and the Fantom Protocol.  
 
@@ -16,16 +16,16 @@ Beyond this, our vision is for people to vote (and possibly comment) on the meme
 - Truffle
 > npm install -g truffle@5.0.5 (important is to use this version)
 - Web3.js
+> The Fantom Opera network is web3js compatible, so using the web3js calls in the documentation 
+> (https://web3js.readthedocs.io/en/v1.2.5/) should work with the Opera Network and Ethereum network.
 - IPFS 
 > public open IPFS trough Infura is already coded into Meme dApp, find more about IPFS here
 > https://infura.io/
 - Opera blockchain: https://github.com/Fantom-foundation/go-lachesis
-> You need to configure blockhain to run in local private mode not public
-> after you pull it and compile it from repository, run the blockchain and enable WebSocket endpoint with command
-```shell
-lachesis --fakenet 1/1 --ws
-```
+> Currently it is possible to use local Ethereum blockchain (Ganache) to run the dApp.
+> After Opera testnet will be deployed and avaliable, it will be possible to use the dApp on it.
 - Fantom desktop wallet: https://github.com/Fantom-foundation/desktop-web-wallet
+> Currently it is possible to use Metamask to use the dApp.
 
 
 **Installation procedure**
