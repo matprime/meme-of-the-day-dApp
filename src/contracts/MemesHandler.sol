@@ -11,6 +11,17 @@ contract MemesHandler {
   mapping(address => MemeStruct) public memeStructs;
   address[] public memesList;
 
+  constructor() public {
+    memeStructs[0x787eBC47F34081a0Df4dc3923798828ae52C538C].ipfsHash = 'QmWERhDH1PLhYAeRLQQ8Cc9ykmi8XUvsBeEXgZcwQ3fAuL';
+    memeStructs[0x787eBC47F34081a0Df4dc3923798828ae52C538C].votes = 0;
+    memeStructs[0x787eBC47F34081a0Df4dc3923798828ae52C538C].isMeme = true;
+    memesList.push(0x787eBC47F34081a0Df4dc3923798828ae52C538C) -1;
+    memeStructs[0xBCe3fe1C153036288Dd4745235F03d19cb357602].ipfsHash = 'QmNP2xz4PkPXZwaUyzC9tyDdTjEpET1D3vW1CdwNQdyTdM';
+    memeStructs[0xBCe3fe1C153036288Dd4745235F03d19cb357602].votes = 0;
+    memeStructs[0xBCe3fe1C153036288Dd4745235F03d19cb357602].isMeme = true;
+    memesList.push(0xBCe3fe1C153036288Dd4745235F03d19cb357602) -1;
+  }
+
   function isMeme(address _memeAddress) public view returns(bool isIndeed) {
       return memeStructs[_memeAddress].isMeme;
   }
