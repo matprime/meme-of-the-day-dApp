@@ -33,6 +33,7 @@ Beyond this, our vision is for people to vote (and possibly comment) on the meme
 git clone https://github.com/matprime/meme-of-the-day-dApp
 cd meme-of-the-day-dApp
 npm install
+truffle migrate --reset
 npm run start
 ```
 Before starting the dApp with last command "npm run start" you need to make sure that local Opera blockchain is running. Please look into Opera blockchain repository https://github.com/Fantom-foundation/go-lachesis, how to start it. After Opera blockchain is running and you started dApp, you should see web browser open up and dApp will load and show the latest meme uploaded in browser window.
