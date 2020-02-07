@@ -9,13 +9,13 @@ export default class Badge extends Component {
                     <div className="col-md-3">
                         <button class="btn peach-gradient btn-rounded" style={{ paddingLeft: "1%" }}>
                             <span class="badge badge-pill badge-danger" style={{ fontSize: "xx-large" }}>1</span>
-                            <span>Choose image</span>
+                            <span>Choose meme</span>
                         </button>
                     </div>
                     <div className="col-md-3">
                         <button class="btn purple-gradient btn-rounded" style={{ paddingLeft: "1%" }}>
-                            <span class="badge badge-pill badge-default" style={{ fontSize: "xx-large" }}>2</span>
-                            <span>Upload image</span>
+                            <span class="badge badge-pill badge-info" style={{ fontSize: "xx-large" }}>2</span>
+                            <span>Upload meme</span>
                         </button>
                     </div>
                     <div className="col-md-4">
