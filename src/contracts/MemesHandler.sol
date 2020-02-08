@@ -20,6 +20,10 @@ contract MemesHandler {
     memeStructs[0xBCe3fe1C153036288Dd4745235F03d19cb357602].votes = 0;
     memeStructs[0xBCe3fe1C153036288Dd4745235F03d19cb357602].isMeme = true;
     memesList.push(0xBCe3fe1C153036288Dd4745235F03d19cb357602) -1;
+    memeStructs[0x1318860E9DdBaed4A3ffa3D38a689737F1a1B9Af].ipfsHash = 'QmYHaaWHgpT2iBGNxMCCFpDKgskej6bhubd5cnytUuJKRp';
+    memeStructs[0x1318860E9DdBaed4A3ffa3D38a689737F1a1B9Af].votes = 0;
+    memeStructs[0x1318860E9DdBaed4A3ffa3D38a689737F1a1B9Af].isMeme = true;
+    memesList.push(0x1318860E9DdBaed4A3ffa3D38a689737F1a1B9Af) -1;
   }
 
   function isMeme(address _memeAddress) public view returns(bool isIndeed) {
