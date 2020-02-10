@@ -1,4 +1,4 @@
-# Meme of the Day dApp -- For Fantom/Opera blockchain
+# Meme of the Day dApp -- For Fantom Protocol & Opera Blockchain
 
 Upload your meme, vote and comment on other memes, discover top memes with this dApp.
 
