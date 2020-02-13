@@ -84,42 +84,42 @@ export default class Content extends Component {
         const file = event.target.files[0]
         const fileReader = new window.FileReader()
         fileReader.readAsArrayBuffer(file)
-        fileReader.onloadend = () => {
+        fileReader.onload = () => {
             this.setState({ buffer: Buffer(fileReader.result) })
+            console.log('meme uploaded to browser cache...')
+            console.log(this.state.buffer);
+            //IPFS: http://ipfs.infura.io/ipfs/QmWERhDH1PLhYAeRLQQ8Cc9ykmi8XUvsBeEXgZcwQ3fAuL
+            ipfs.add(this.state.buffer, (error, result) => {
+                console.log('Ipfs result', result)
+                const memeHash = result[0].hash
+                this.setState({ memeHash })
+                if (error) {
+                    console.error(error)
+                    return
+                }
+            })
         }
-        console.log('meme uploaded to browser cache...')
-        console.log(this.state.buffer);
     }
 
     onSubmit = (event) => {
         event.preventDefault()
-        console.log("Submitting the form...")
-        //IPFS: http://ipfs.infura.io/ipfs/QmWERhDH1PLhYAeRLQQ8Cc9ykmi8XUvsBeEXgZcwQ3fAuL
-        ipfs.add(this.state.buffer, (error, result) => {
-            console.log('Ipfs result', result)
-            const memeHash = result[0].hash
-            this.setState({ memeHash })
-            if (error) {
-                console.error(error)
-                return
-            }
-            //storing meme with hash on blockchain
-            console.log('Meme will be stored with account: ' + this.state.account);
+        console.log("Submitting the form...storing meme on blockchain")
+        //storing meme with hash on blockchain
+        console.log('Meme will be stored with account: ' + this.state.account);
 
-            this.state.contract.methods.newMeme(memeHash).send({ from: this.state.account }).then((r) => {
-                console.log('inside of contract function call')
-                this.setState({ memeHash: memeHash })
-            })
-            //special code for writting to array of React's state object
-            this.setState(state => {
-                const stored = state.stored.concat(memeHash);
-
-                return {
-                    stored,
-                };
-            });
-            console.log('stored memes: ' + this.state.stored)
+        this.state.contract.methods.newMeme(this.state.memeHash).send({ from: this.state.account }).then((r) => {
+            console.log('inside of contract function call')
+            //this.setState({ memeHash: memeHash })
         })
+        //special code for writting to array of React's state object
+        this.setState(state => {
+            const stored = state.stored.concat(this.state.memeHash);
+
+            return {
+                stored,
+            };
+        });
+        console.log('stored memes: ' + this.state.stored)
     }
     render() {
         let index=1;
