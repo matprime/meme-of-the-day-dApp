@@ -19,7 +19,7 @@ export default class Content extends Component {
             contract: null,
             memeHash: 'QmNP2xz4PkPXZwaUyzC9tyDdTjEpET1D3vW1CdwNQdyTdM',
             stored: [],
-
+            memes: []
         };
     }
 
@@ -48,9 +48,14 @@ export default class Content extends Component {
             const memesCount = await contract.methods.getMemesCount().call()
             console.log('count of stored memes: ' + memesCount)
             let ipfsHash = '';
+            let votes = 0;
+            let memes =''
+            memes = await contract.methods.getMemesList().call()
+            console.log('memes addreses retrieved:' + memes)
             for (let i = 0; i < memesCount; i++) {
                 ipfsHash = await contract.methods.getMemeByIndex(i).call()
                 console.log('ipfsHash of ' + i + ' meme: ' + ipfsHash)
+                console.log('owner of ' + i + ' meme:' + memes[i])
                 //special code for writting to array of React's state object
                 this.setState(state => {
                     const stored = state.stored.concat(ipfsHash);
@@ -58,7 +63,14 @@ export default class Content extends Component {
                         stored,
                     };
                 });
-                console.log('Stored memes: ' + this.state.stored)
+                this.setState(state => {
+                    const memes = state.memes.concat({owner: "testOwner", ipfsHash : "testHash", votes: "testVotes"});
+                    return {
+                        memes,
+                    };
+                });
+                console.log('Stored memes hashes: ' + this.state.stored)
+                console.log('Stored memes object: ' + this.state.memes[i].owner + ' ' + this.state.memes[i].ipfsHash)
             }
 
         } else {
