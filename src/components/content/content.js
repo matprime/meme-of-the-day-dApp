@@ -49,13 +49,13 @@ export default class Content extends Component {
             console.log('count of stored memes: ' + memesCount)
             let ipfsHash = '';
             let votes = 0;
-            let memes =''
-            memes = await contract.methods.getMemesList().call()
-            console.log('memes addreses retrieved:' + memes)
+            let owners =''
+            owners = await contract.methods.getMemesList().call()
+            console.log('memes addreses retrieved:' + owners)
             for (let i = 0; i < memesCount; i++) {
                 ipfsHash = await contract.methods.getMemeByIndex(i).call()
                 console.log('ipfsHash of ' + i + ' meme: ' + ipfsHash)
-                console.log('owner of ' + i + ' meme:' + memes[i])
+                console.log('owner of ' + i + ' meme:' + owners[i])
                 //special code for writting to array of React's state object
                 this.setState(state => {
                     const stored = state.stored.concat(ipfsHash);
@@ -64,13 +64,13 @@ export default class Content extends Component {
                     };
                 });
                 this.setState(state => {
-                    const memes = state.memes.concat({owner: "testOwner", ipfsHash : "testHash", votes: "testVotes"});
+                    const memes = state.memes.concat({owner: owners[i], ipfsHash : ipfsHash, votes: "testVotes"});
                     return {
                         memes,
                     };
                 });
                 console.log('Stored memes hashes: ' + this.state.stored)
-                console.log('Stored memes object: ' + this.state.memes[i].owner + ' ' + this.state.memes[i].ipfsHash)
+                console.log('Stored memes object of ' + i + ': ' + this.state.memes[i].owner + ' ' + this.state.memes[i].ipfsHash)
             }
 
         } else {
@@ -143,7 +143,7 @@ export default class Content extends Component {
                     <div className="col-md-9" style={{ paddingTop: "3%" }}>
                         <Badge />
                         <div className="row imageGallery">
-                            {this.state.stored.map((item)=><ImageGallery item={item} id={index++}/>)}
+                            {this.state.memes.map((item)=><ImageGallery item={item} id={index++}/>)}
                         </div>
                     </div>
                 </div>
