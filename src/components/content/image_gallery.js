@@ -20,7 +20,7 @@ export default class ImageGallery extends Component{
                 <a href="#" class="d-block mb-4 h-100">
                     <img src={`https://ipfs.infura.io/ipfs/${this.props.item.ipfsHash}`}
                      width='200' height='200' className=" image-thumbnail" onClick={this.clickMeme} />
-                    <span>Meme nr.: {this.props.id}</span><span style={{paddingLeft:"27%"}}><b>Votes:</b></span>
+                    <span>Meme nr.: {this.props.id}</span><span style={{paddingLeft:"25%"}}><b>Votes: {this.props.item.votes}</b></span>
                  </a>
             </div>
         );

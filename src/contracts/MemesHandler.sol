@@ -13,7 +13,7 @@ contract MemesHandler {
 
   constructor() public {
     memeStructs[0xBCe3fe1C153036288Dd4745235F03d19cb357602].ipfsHash = 'QmWERhDH1PLhYAeRLQQ8Cc9ykmi8XUvsBeEXgZcwQ3fAuL';
-    memeStructs[0xBCe3fe1C153036288Dd4745235F03d19cb357602].votes = 0;
+    memeStructs[0xBCe3fe1C153036288Dd4745235F03d19cb357602].votes = 5;
     memeStructs[0xBCe3fe1C153036288Dd4745235F03d19cb357602].isMeme = true;
     memesList.push(0xBCe3fe1C153036288Dd4745235F03d19cb357602) -1;
     memeStructs[0x1905C992cC392484D87c99156Da3F27e50F26A4b].ipfsHash = 'QmNP2xz4PkPXZwaUyzC9tyDdTjEpET1D3vW1CdwNQdyTdM';
@@ -21,7 +21,7 @@ contract MemesHandler {
     memeStructs[0x1905C992cC392484D87c99156Da3F27e50F26A4b].isMeme = true;
     memesList.push(0x1905C992cC392484D87c99156Da3F27e50F26A4b) -1;
     memeStructs[0x1318860E9DdBaed4A3ffa3D38a689737F1a1B9Af].ipfsHash = 'QmYHaaWHgpT2iBGNxMCCFpDKgskej6bhubd5cnytUuJKRp';
-    memeStructs[0x1318860E9DdBaed4A3ffa3D38a689737F1a1B9Af].votes = 0;
+    memeStructs[0x1318860E9DdBaed4A3ffa3D38a689737F1a1B9Af].votes = 10;
     memeStructs[0x1318860E9DdBaed4A3ffa3D38a689737F1a1B9Af].isMeme = true;
     memesList.push(0x1318860E9DdBaed4A3ffa3D38a689737F1a1B9Af) -1;
   }

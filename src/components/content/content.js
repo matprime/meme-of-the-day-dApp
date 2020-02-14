@@ -45,8 +45,10 @@ export default class Content extends Component {
             this.setState({ contract: contract })
             console.log('smart contract retrieved')
             console.log(contract)
+            //fetching the number of memes stored on blockchain
             const memesCount = await contract.methods.getMemesCount().call()
             console.log('count of stored memes: ' + memesCount)
+            //fetching information about every meme and display it
             let ipfsHash = '';
             let votes = 0;
             let owners =''
@@ -56,7 +58,8 @@ export default class Content extends Component {
                 ipfsHash = await contract.methods.getMemeByIndex(i).call()
                 console.log('ipfsHash of ' + i + ' meme: ' + ipfsHash)
                 console.log('owner of ' + i + ' meme:' + owners[i])
-                //special code for writting to array of React's state object
+                votes = await contract.methods.getVotes(owners[i]).call()
+                console.log('votes ' + i + ' meme has: ' + Number(votes))
                 this.setState(state => {
                     const stored = state.stored.concat(ipfsHash);
                     return {
@@ -64,13 +67,13 @@ export default class Content extends Component {
                     };
                 });
                 this.setState(state => {
-                    const memes = state.memes.concat({owner: owners[i], ipfsHash : ipfsHash, votes: "testVotes"});
+                    const memes = state.memes.concat({owner: owners[i], ipfsHash : ipfsHash, votes: Number(votes)});
                     return {
                         memes,
                     };
                 });
                 console.log('Stored memes hashes: ' + this.state.stored)
-                console.log('Stored memes object of ' + i + ': ' + this.state.memes[i].owner + ' ' + this.state.memes[i].ipfsHash)
+                console.log('Stored memes object of ' + i + ': ' + this.state.memes[i].owner + '|' + this.state.memes[i].ipfsHash + '|' + this.state.memes[i].votes)
             }
 
         } else {
